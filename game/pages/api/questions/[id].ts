@@ -1,6 +1,5 @@
+import questions from './questionBase'
+
 export default function handler(req, res) {
-  res.status(200).json({
-    id: +req.query.id,
-    name: 'John Doe'
-  })
+  res.status(200).json(questions[0])
 }
