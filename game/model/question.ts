@@ -30,9 +30,18 @@ export default class QuestionModel {
     }
 
     get answered() {
-        for(let answer of this.#answer) {
-            if(answer.revealed) return true
+        for (let answer of this.#answer) {
+            if (answer.revealed) return true
         }
         return false
+    }
+
+    toObject() {
+        return {
+            id: this.#id,
+            wording: this.#wording,
+            answer: this.#answer.map(resp => resp.toObject()),
+            correct: this.#correct
+        }
     }
 }
