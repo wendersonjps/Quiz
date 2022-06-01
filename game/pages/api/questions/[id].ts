@@ -1,4 +1,4 @@
-import questions from './questionBase'
+import questions from '../questionBase'
 
 export default function handler(req, res) {
   const idSelected = +req.query.id
