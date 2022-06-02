@@ -1,0 +1,15 @@
+.answer {
+    display: flex;
+}
+
+.answerContent {
+    display: flex;
+}
+
+.front {
+    display: flex;
+}
+
+.back {
+    display: flex;
+}
