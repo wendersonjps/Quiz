@@ -1,19 +1,27 @@
-import styles from '../styles/Home.module.css'
+import { useState } from 'react'
+
 import Question from '../components/Question'
 import QuestionModel from '../model/question'
 import AnswerModel from '../model/answer'
 
+const questionMock = new QuestionModel(1, 'Melhor cor?', [
+  AnswerModel.wrong('Vermelho'),
+  AnswerModel.wrong('Verde'),
+  AnswerModel.wrong('Azul'),
+  AnswerModel.wrong('Preto')
+])
+
 export default function Home() {
-  const questionTest = new QuestionModel(1, 'Melhor cor?', [
-    AnswerModel.wrong('Vermelho'),
-    AnswerModel.wrong('Verde'),
-    AnswerModel.wrong('Azul'),
-    AnswerModel.wrong('Preto')
-  ])
+  const [question, setQuestion] = useState(questionMock)
+
+  function onResponse(indice: number) {
+    console.log(indice)
+    setQuestion(question.replyWith(indice))
+  }
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Question value={questionTest} />
+      <Question value={question} onResponse={onResponse} />
     </div>
   )
 }
