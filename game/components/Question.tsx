@@ -13,7 +13,7 @@ export default function Question(props: QuestionProps) {
     function renderAnswer() {
         return question.answer.map((answer, i) => {
             return (
-                <Answer value={answer} indice={i} letter='A' letterColor='#F2C866' />
+                <Answer key={i} value={answer} indice={i} letter='A' letterBackgroundColor='#F2C866' />
             )
         })
     }
