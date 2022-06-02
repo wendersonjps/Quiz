@@ -21,10 +21,31 @@
 
 .front {
     align-items: center;
-    border-radius: 1.2vh;
     padding: 1.5vh;
+    border-radius: 1.2vh;
     color: #222;
     background-color: #fff;
+}
+
+.back > div {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    flex: 1;
+    border-radius: 1.2vh
+}
+
+.correct {
+    background-color: #2BAA6D;
+}
+
+.wrong {
+    background-color: #DC143C;
+}
+
+.correct .value, .wrong .value {
+    font-size: 2rem;
 }
 
 .letter {
