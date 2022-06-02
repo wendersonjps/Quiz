@@ -12,6 +12,7 @@ const letters = [
 
 interface QuestionProps {
     value: QuestionModel
+    onResponse: (indice: number) => void
 }
 
 export default function Question(props: QuestionProps) {
@@ -20,7 +21,7 @@ export default function Question(props: QuestionProps) {
     function renderAnswer() {
         return question.answer.map((answer, i) => {
             return (
-                <Answer key={i} value={answer} indice={i} letter={letters[i].value} letterBackgroundColor={letters[i].collor} />
+                <Answer key={i} value={answer} indice={i} letter={letters[i].value} letterBackgroundColor={letters[i].collor} onResponse={props.onResponse} />
             )
         })
     }

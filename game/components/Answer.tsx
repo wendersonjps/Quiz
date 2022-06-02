@@ -6,13 +6,14 @@ interface AnswerProps {
     indice: number
     letter: string
     letterBackgroundColor: string
+    onResponse: (indice: number) => void
 }
 
 export default function Answer(props: AnswerProps) {
     const answer = props.value
 
     return (
-        <div className={styles.answer}>
+        <div className={styles.answer} onClick={() => props.onResponse(props.indice)}>
             <div className={styles.answerContent}>
                 <div className={styles.front}>
                     <div className={styles.letter} style={{ backgroundColor: props.letterBackgroundColor }}>
