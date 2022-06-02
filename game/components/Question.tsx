@@ -3,6 +3,13 @@ import QuestionModel from '../model/question'
 import Wording from './Wording'
 import Answer from './Answer'
 
+const letters = [
+    { value: 'A', collor: '#4169E1' },
+    { value: 'B', collor: '#4169E1' },
+    { value: 'C', collor: '#4169E1' },
+    { value: 'D', collor: '#4169E1' }
+]
+
 interface QuestionProps {
     value: QuestionModel
 }
@@ -13,7 +20,7 @@ export default function Question(props: QuestionProps) {
     function renderAnswer() {
         return question.answer.map((answer, i) => {
             return (
-                <Answer key={i} value={answer} indice={i} letter='A' letterBackgroundColor='#F2C866' />
+                <Answer key={i} value={answer} indice={i} letter={letters[i].value} letterBackgroundColor={letters[i].collor} />
             )
         })
     }
