@@ -8,7 +8,7 @@ const questionMock = new QuestionModel(1, 'Melhor cor?', [
   AnswerModel.wrong('Vermelho'),
   AnswerModel.wrong('Verde'),
   AnswerModel.wrong('Azul'),
-  AnswerModel.wrong('Preto')
+  AnswerModel.correct('Preto')
 ])
 
 export default function Home() {
