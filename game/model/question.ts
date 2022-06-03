@@ -37,6 +37,10 @@ export default class QuestionModel {
         return false
     }
 
+    get unanswered() {
+        return !this.answered
+    }
+
     replyWith(indice: number): QuestionModel {
         const correct = this.#answer[indice]?.correct
         const answers = this.#answer.map((answer, i) => {
