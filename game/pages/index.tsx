@@ -26,7 +26,7 @@ export default function Home() {
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <Question value={question} onResponse={onResponse} timeout={timeout} />
+      <Question value={question} responseTime={10} onResponse={onResponse} timeout={timeout} />
     </div>
   )
 }
