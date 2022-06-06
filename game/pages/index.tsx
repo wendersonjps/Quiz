@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 
 import QuestionModel from '../model/question'
-import AnswerModel from '../model/answer'
 import Questionnaire from '../components/Questionnaire'
-
-const questionMock = new QuestionModel(1, 'Melhor cor?', [
-  AnswerModel.wrong('Vermelho'),
-  AnswerModel.wrong('Verde'),
-  AnswerModel.wrong('Azul'),
-  AnswerModel.correct('Preto')
-])
 
 const BASE_URL = 'http://localhost:3000/api'
 
 export default function Home() {
+  const router = useRouter()
+
   const [questionIds, setQuestionIds] = useState<number[]>([])
-  const [question, setQuestion] = useState<QuestionModel>(questionMock)
+  const [question, setQuestion] = useState<QuestionModel>()
   const [correctAnswers, setCorrectAnswers] = useState<number>(0)
 
   async function loadIdQuestion() {
@@ -45,11 +40,33 @@ export default function Home() {
     setCorrectAnswers(correctAnswers + (correct ? 1 : 0))
   }
 
-  function nextStep() {
+  function nextQuestionId() {
+    if (question) {
+      const nextIndice = questionIds.indexOf(question.id) + 1
+      return questionIds[nextIndice]
+    }
+  }
 
+  function nextStep() {
+    const nextId = nextQuestionId()
+    nextId ? nextQuestion(nextId) : finish()
+  }
+
+  function nextQuestion(nextId: number) {
+    loadQuestion(nextId)
+  }
+
+  function finish() {
+    router.push({
+      pathname: "/result",
+      query: {
+        total: questionIds.length,
+        correct: correctAnswers
+      }
+    })
   }
 
   return (
-    <Questionnaire question={question} last={true} questionAnswered={questionAnswered} nextStep={nextStep} />
+    <Questionnaire question={question} last={nextQuestionId() === undefined} questionAnswered={questionAnswered} nextStep={nextStep} />
   )
 }
