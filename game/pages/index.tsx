@@ -41,10 +41,8 @@ export default function Home() {
   }
 
   function nextQuestionId() {
-    if (question) {
-      const nextIndice = questionIds.indexOf(question.id) + 1
-      return questionIds[nextIndice]
-    }
+    const nextIndice = questionIds.indexOf(question.id) + 1
+    return questionIds[nextIndice]
   }
 
   function nextStep() {
@@ -66,7 +64,7 @@ export default function Home() {
     })
   }
 
-  return (
+  return question ? (
     <Questionnaire question={question} last={nextQuestionId() === undefined} questionAnswered={questionAnswered} nextStep={nextStep} />
-  )
+  ) : false
 }
