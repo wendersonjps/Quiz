@@ -26,7 +26,8 @@ export default function Home() {
   async function loadQuestion(questionId: number) {
     const resp = await fetch(`${BASE_URL}/questions/${questionId}`)
     const json = await resp.json()
-    console.log(json)
+    const newQuestion = QuestionModel.createUsingObject(json)
+    setQuestion(newQuestion)
   }
 
   useEffect(() => {
@@ -49,13 +50,3 @@ export default function Home() {
     <Questionnaire question={question} last={true} questionAnswered={questionAnswered} nextStep={nextStep} />
   )
 }
-
-/*   function onResponse(indice: number) {
-    setQuestion(question.replyWith(indice))
-  }
-
-  function timeout() {
-    if (question.unanswered) {
-      setQuestion(question.replyWith(-1))
-    }
-  } */
