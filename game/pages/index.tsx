@@ -15,7 +15,8 @@ const BASE_URL = 'http://localhost:3000/api'
 
 export default function Home() {
   const [questionIds, setQuestionIds] = useState<number[]>([])
-  const [question, setQuestion] = useState(questionMock)
+  const [question, setQuestion] = useState<QuestionModel>(questionMock)
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0)
 
   async function loadIdQuestion() {
     const resp = await fetch(`${BASE_URL}/questionnaire`)
@@ -38,8 +39,10 @@ export default function Home() {
     questionIds.length > 0 && loadQuestion(questionIds[0])
   }, [questionIds])
 
-  function questionAnswered(question: QuestionModel) {
-
+  function questionAnswered(questionAnswered: QuestionModel) {
+    setQuestion(questionAnswered)
+    const correct = questionAnswered.correct
+    setCorrectAnswers(correctAnswers + (correct ? 1 : 0))
   }
 
   function nextStep() {
