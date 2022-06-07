@@ -1,0 +1,80 @@
+.answer {
+    display: flex;
+    min-width: 55vh;
+    width: 80%;
+    height: 10vh;
+    margin: 1vh;
+    perspective: 100vh;
+}
+
+.answerContent {
+    position: relative;
+    display: flex;
+    flex: 1;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.answerRevealed.answerContent {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.front {
+    align-items: center;
+    padding: 1.5vh;
+    border-radius: 1.2vh;
+    color: #222;
+    background-color: #fff;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.back > div {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    flex: 1;
+    border-radius: 1.2vh;
+}
+
+.correct {
+    background-color: #2BAA6D;
+}
+
+.wrong {
+    background-color: #DC143C;
+}
+
+.correct .value, .wrong .value {
+    font-size: 2rem;
+}
+
+.letter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 500;
+    height: 5vh;
+    width: 5vh;
+    margin-right: 2.5vh;
+    border-radius: 2.5vh;
+    color: #fff;
+}
+
+.value {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
