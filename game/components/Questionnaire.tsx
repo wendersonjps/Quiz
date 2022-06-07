@@ -11,7 +11,7 @@ interface QuestionnaireProps {
 }
 
 export default function Questionnaire(props: QuestionnaireProps) {
-    function answerProvided(indice: number) {
+    function onResponse(indice: number) {
         if (props.question.unanswered) {
             props.questionAnswered(props.question.replyWith(indice))
         }
@@ -20,7 +20,7 @@ export default function Questionnaire(props: QuestionnaireProps) {
     return (
         <div className={styles.questionnaire}>
             {props.question ?
-                <Question value={props.question} responseTime={6} answerProvided={answerProvided} timeOut={props.nextStep} />
+                <Question value={props.question} responseTime={6} onResponse={onResponse} timeout={props.nextStep} />
                 : false
             }
             <Button onClick={props.nextStep} text={props.last ? 'Finalizar' : 'Próxima'} />
