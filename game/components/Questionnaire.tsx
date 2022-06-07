@@ -20,7 +20,7 @@ export default function Questionnaire(props: QuestionnaireProps) {
     return (
         <div className={styles.questionnaire}>
             {props.question ?
-                <Question value={props.question} responseTime={6} onResponse={onResponse} timeout={props.nextStep} />
+                <Question value={props.question} responseTime={10} onResponse={onResponse} timeout={props.nextStep} />
                 : false
             }
             <Button onClick={props.nextStep} text={props.last ? 'Finalizar' : 'Próxima'} />
