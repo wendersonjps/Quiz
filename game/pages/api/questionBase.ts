@@ -20,7 +20,7 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('Rebanho'),
         AnswerModel.correct('Matilha'),
     ]),
-    /* new QuestionModel(4, 'Qual é o triângulo que tem todos os lados diferentes?', [
+    new QuestionModel(4, 'Qual é o triângulo que tem todos os lados diferentes?', [
         AnswerModel.wrong('Equilátero'),
         AnswerModel.wrong('Isóceles'),
         AnswerModel.wrong('Trapézio'),
@@ -97,7 +97,7 @@ const questions: QuestionModel[] = [
         AnswerModel.wrong('Barão de Mauá'),
         AnswerModel.wrong('Marquês de Pombal'),
         AnswerModel.correct('Duque de Caxias'),
-    ]) */
+    ])
 ]
 
 export default questions
