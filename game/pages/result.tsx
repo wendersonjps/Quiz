@@ -4,7 +4,7 @@ import styles from '../styles/Result.module.css'
 import Statistic from '../components/Statistic'
 import Button from '../components/Button'
 
-export default function result() {
+export default function Result() {
     const router = useRouter()
 
     const total = +router.query.total
