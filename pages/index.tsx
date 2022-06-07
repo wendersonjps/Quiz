@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import QuestionModel from '../model/question'
 import Questionnaire from '../components/Questionnaire'
 
-const BASE_URL = 'http://localhost:3000/api'
+const BASE_URL = 'https://quiz-inky-three.vercel.app/api'
 
 export default function Home() {
   const router = useRouter()
