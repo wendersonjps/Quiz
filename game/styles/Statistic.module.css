@@ -1,0 +1,21 @@
+.statistic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1vh;
+}
+
+.value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 18vh;
+    width: 18vh;
+    border-radius: 9vh;
+    font-size: 4rem;
+}
+
+.text {
+    font-size: 1.7rem;
+    font-weight: 200;
+}
